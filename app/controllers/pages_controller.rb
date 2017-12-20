@@ -5,11 +5,11 @@ class PagesController < ApplicationController
   end
 
   def rezize_photos
-    url = 'http://54.152.221.29/images.json'
-    response = HTTParty.get(url)
-    @photos = response.parsed_response
-    @photos['images'].each do |photo_parsed|
-      unless Photo.find_by(name: photo_parsed['url'].split('/')[-1])
+    if Photo.count == 0
+      url = 'http://54.152.221.29/images.json'
+      response = HTTParty.get(url)
+      @photos = response.parsed_response
+      @photos['images'].each do |photo_parsed|
         photo = MiniMagick::Image.open(photo_parsed['url'])
         photo.resize "320x240"
         photo.write "app/assets/images/_small.jpg"
@@ -43,4 +43,3 @@ class PagesController < ApplicationController
       end
     end
   end
-end
