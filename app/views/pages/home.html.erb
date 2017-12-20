@@ -1,0 +1,13 @@
+<% @saved_photos.each do |photo| %>
+  <br>
+  <h1> small - 320x240 </h1>
+  <%= image_tag photo.small %>
+  <br>
+  <h1> medium - 384x288 </h1>
+  <%= image_tag photo.medium %>
+  <br>
+  <h1> large - 640x480 </h1>
+  <%= image_tag photo.large %>
+  <br>
+<% end %>
+<br>
