@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.5'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -31,7 +32,6 @@ gem 'mongo', '~> 2.4'
 gem 'mongoid', '~> 6.1.0'
 gem 'mini_magick'
 gem 'httparty'
-gem 'figaro'
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
